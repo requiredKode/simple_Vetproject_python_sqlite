@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <title> Sign In </title>
+  </head>
+  <body>
+    <div class="wrapper fadeInDown">
+      <div id="formContent">
+        <h2 class="active"> Sign In </h2>
+        <h2 class="inactive underlineHover"><a href="/user_reg"> Sign Up </a> </h2>
+        <form action="/login" method="post">
+          <input type="text" id="login" class="fadeIn second" autocomplete="off" autofocus name="username" placeholder="Username" required="required" />
+          <input type="password" id="password" class="fadeIn third" autocomplete="off" autofocus name="password" placeholder="Password" required="required" />
+          <input type="submit" class="fadeIn fourth" value="Log In">
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

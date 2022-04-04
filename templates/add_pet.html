@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% if session.username %}
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <h2 class="active"> Add Pet </h2>
+        <form action="/add_pet" method="post">
+            <input type="text" id="login" autocomplete="off" autofocus name="petname" placeholder="Pet Name" required="required" />
+            <input type="text" id="login" autocomplete="off" autofocus name="years" placeholder="Years" required="required" />
+            <input type="text" id="login" autocomplete="off" autofocus name="sex" placeholder="Sex" required="required" />
+            <input type="text" id="login" autocomplete="off" autofocus name="type_pet" placeholder="Type Pet" required="required" />
+            <input type="text" id="login" autocomplete="off" autofocus name="race" placeholder="Race" required="required" />
+            <input type="text" id="login" autocomplete="off" autofocus name="size" placeholder="Size" required="required" />
+            <input type="text" id="login" autocomplete="off" autofocus name="color" placeholder="color" required="required" />
+            <input type="submit" class="fadeIn fourth" value="Save">
+        </form>
+    </div>
+</div>
+{% else %}
+	You are not logged in. <a href="/login">Log in</a>.
+{% endif %}
+
+{% endblock %}

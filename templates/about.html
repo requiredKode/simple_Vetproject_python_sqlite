@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+    <title> About Page </title>
+  </head>
+  <body>
+{% if session.username %}
+<div class="container">
+  <main>
+     <h1 class="page-title">About Me</h1>
+    <article class="content">
+      <section class="content__descriptor">
+        <h2 class="content__title">Info</h2>
+      </section>
+      <section class="content__text-box">
+        <p class="content__text">
+          Project developed by Andres Guzman for the Cs50 course.
+        </p>
+        <p class="content__text">
+          Thanks for all the teaching provided in the course, which has made me learn a lot and have lived this great experience doing the project.
+        </p>
+      </section>
+    </article>
+  </main>
+</div>
+
+{% else %}
+	You are not logged in. <a href="/login">Log in</a>.
+{% endif %}
+
+</body>
+</html>

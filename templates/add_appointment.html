@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% if session.username %}
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <h2 class="active"> Add Appointment </h2>
+        <form action="/add_appointment" method="post">
+            <input type="text" id="login" class="fadeIn second" autocomplete="off" autofocus name="owner" placeholder="Owner" required="required" />
+            <input type="text" id="login" class="fadeIn third" autocomplete="off" autofocus name="petname" placeholder="Pet Name" required="required" />
+            <input type="text" id="login" class="fadeIn second" autocomplete="off" autofocus name="description" placeholder="Description" required="required" />
+            <input type="date" id="password" class="fadeIn third" autocomplete="off" autofocus name="ap_date" placeholder="Appointment Date" required="required" />
+            <input type="submit" class="fadeIn fourth" value="Save">
+        </form>
+    </div>
+</div>
+{% else %}
+	You are not logged in. <a href="/login">Log in</a>.
+{% endif %}
+
+{% endblock %}

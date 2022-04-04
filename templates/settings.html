@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% if session.username %}
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <h2 class="active"> Settings </h2>
+        <form action="/update/{{user.0}}" method="post">
+            <input type="text" id="login" class="fadeIn second" autocomplete="off" autofocus name="name" value="{{user.1}}" placeholder="Name" required="required" />
+            <input type="text" id="login" class="fadeIn third" autocomplete="off" autofocus name="lastname" value="{{user.2}}" placeholder="Last Name" required="required" />
+            <input type="text" id="login" class="fadeIn second" autocomplete="off" autofocus name="username" value="{{user.3}}" placeholder="Username" required="required" />
+            <input type="password" id="password" class="fadeIn third" autocomplete="off" autofocus name="password" value="{{user.4}}" placeholder="Password" required="required" />
+            <input type="email" id="login" class="fadeIn second" autocomplete="off" autofocus name="email" value="{{user.5}}" placeholder="Email" required="required" />
+            <input type="submit" class="fadeIn fourth" value="Update">
+        </form>
+    </div>
+</div>
+{% else %}
+	You are not logged in. <a href="/login">Log in</a>.
+{% endif %}
+
+{% endblock %}

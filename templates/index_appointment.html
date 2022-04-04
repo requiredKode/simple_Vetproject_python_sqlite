@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% if session.username %}
+<div class="bodyx">
+	<h1 class="menu-item"><a href="/logout">Welcome {{ session.username }}  |  log out</a></h1>
+<p>TABLE WITH REGISTERED/ATTENDED/TO BE ATTENDED APPOINTMENTS</p>
+<a href="/add_appointment"><input type="submit" class="fadeIn fourth" value="Add Appointment"></a>
+<div class="container">
+	<p>Select Number Of Rows</p>
+		<div class="form-group">
+			<select class  ="form-control" name="state" id="maxRows">
+				<option value="5000">Show ALL Rows</option>
+				<option value="5">5</option>
+				<option value="10">10</option>
+			</select>
+		</div>
+	<table class="table" id="table-id">
+		<thead>
+          	<tr>
+            	<th scope="col">Owner</th>
+            	<th scope="col">Pet Name</th>
+            	<th scope="col">Description</th>
+            	<th scope="col">Appointment Date</th>
+            	<th scope="col">Action</th>
+          	</tr>
+    	</thead>
+    	<tbody>
+		{% for data in appointment %}
+		<tr>
+        	<th scope="row">{{data.1}}</th>
+        	<td>{{data.2}}</td>
+        	<td>{{data.3}}</td>
+        	<td>{{data.4}}</td>
+        	<td width="130">
+            	<a href="/edit_appointment/{{data.0}}">EDIT</a>
+				<a href="/delete_appointment/{{data.0}}">DELETE</a>
+        	</td>
+    	</tr>
+    	{% endfor %}
+    	</tbody>
+	</table>
+	<div class='pagination-container' >
+			<nav>
+				<ul class="pagination">
+        			<li data-page="prev" >
+			    		<span> < <span class="sr-only">(current)</span></span>
+					</li>
+        			<li data-page="next" id="prev">
+						<span> > <span class="sr-only">(current)</span></span>
+					</li>
+				</ul>
+			</nav>
+	</div>
+</div>
+</div>
+{% else %}
+	You are not logged in. <a href="/login">Log in</a>.
+{% endif %}
+
+{% endblock %}
